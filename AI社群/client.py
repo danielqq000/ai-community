@@ -1,20 +1,32 @@
-"""
-Old solo working chatbot, trying to improve to server-client
-"""
-
 import argparse
 import logging
+import requests
 import sys
 from chatbot_module import *
 
+# API Function
+# Read the API key from a file
 def read_api_key(file_path):
     try:
         with open(file_path, 'r') as file:
-            return file.read().strip()
+            return file.read().strip()  # Read and strip any extra whitespace
     except FileNotFoundError:
-        raise ValueError(f"API key file not found: {file_path}")
+        raise ValueError(f"API key file not found: {file_path}")  # Raise an error if file not found
 
-# Main function to parse arguments and start the chatbot
+# To-Server Function
+# Send conversation data to the server
+def send_conversation_to_server(user_id, user_message, bot_response):
+    data = {
+        "user_id": user_id,
+        "user_message": user_message,
+        "bot_response": bot_response
+    }
+    response = requests.post("http://localhost:5000/conversation", json=data)  # Send a POST request to the server
+    if response.status_code != 200:
+        logger.error(f"Failed to save conversation: {response.text}")  # Log an error if the request fails
+
+# Main Function
+# Parse arguments and start the chatbot
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="A simple chatbot using the Mistral API")
     parser.add_argument(
@@ -39,7 +51,7 @@ if __name__ == "__main__":
     )
     parser.add_argument("-d", "--debug", action="store_true", help="Enable debug logging")
 
-    args = parser.parse_args()
+    args = parser.parse_args()  # Parse command-line arguments
 
     # Configure logging based on the debug flag
     if args.debug:
@@ -48,7 +60,6 @@ if __name__ == "__main__":
         logger.setLevel(logging.INFO)
 
     formatter = logging.Formatter(LOG_FORMAT)
-
     ch = logging.StreamHandler()
     ch.setFormatter(formatter)
     logger.addHandler(ch)
@@ -59,10 +70,27 @@ if __name__ == "__main__":
         f"system message: {args.system_message}"
     )
 
+    # Starting chatbot
     try:
-        api_key = read_api_key(args.api_key_file)
-        bot = ChatBot(api_key, args.model, args.system_message, args.temperature)
+        api_key = read_api_key(args.api_key_file)  # Read the API key from the file
+        bot = ChatBot(api_key, args.model, args.system_message, args.temperature)  # Initialize the ChatBot
+        user_id = input("Please enter your user ID: ")
         bot.start()
+
+        while True:
+            try:
+                input = bot.collect_user_input()
+                if bot.is_command(input):
+                    bot.execute_command(input)
+                else:
+                    user_message = input
+                    bot_response = bot.run_inference(input)
+            except KeyboardInterrupt:
+                bot.exit()
+
+            # Send conversation to server
+            send_conversation_to_server(user_id, user_message, bot_response)
+
     except Exception as e:
         logger.error(e)
         sys.exit(1)

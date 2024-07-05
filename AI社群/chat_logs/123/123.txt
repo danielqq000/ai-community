@@ -1,0 +1,8 @@
+2024-07-05 22:51:33 User: Hi, introduce yourself in less than 20 words.
+2024-07-05 22:51:33 Bot: None
+2024-07-05 23:04:51 User: Hi, please tell me a joke.
+2024-07-05 23:04:51 Bot: None
+2024-07-05 23:05:03 User: Not bad, another one?
+2024-07-05 23:05:03 Bot: None
+2024-07-05 23:08:01 User: How's the weather today?
+2024-07-05 23:08:01 Bot: None

@@ -16,7 +16,7 @@ MODEL_LIST = [
 
 # Default values for model and temperature
 DEFAULT_MODEL = "mistral-small-latest"
-DEFAULT_TEMPERATURE = 0.7 # Random 0-1
+DEFAULT_TEMPERATURE = 0.7  # Random 0-1
 
 # A dictionary of all commands and their arguments, used for tab completion.
 COMMAND_LIST = {
@@ -30,12 +30,26 @@ COMMAND_LIST = {
     "/exit": {},
 }
 
-# Logging configuration
+# Logging
+# Only save log to file when error happens
+
+# Logging configuration with file and console handlers
 LOG_FORMAT = "%(asctime)s - %(levelname)s - %(message)s"
 logger = logging.getLogger("chatbot")
+logger.setLevel(logging.DEBUG)
 
+# Create a file handler
+file_handler = logging.FileHandler("chatbot.log")
+file_handler.setLevel(logging.DEBUG)
+file_handler.setFormatter(logging.Formatter(LOG_FORMAT))
+
+# Add handlers to the logger
+logger.addHandler(file_handler)
+
+
+# Input Function
 # Completing user inputs
-# Function to find command completions based on the current input
+# Find command completions based on the current input
 def find_completions(command_dict, parts):
     if not parts:
         return command_dict.keys()
@@ -146,20 +160,21 @@ To see this help: /help
 
         self.messages.append(ChatMessage(role="user", content=content))
 
-        assistant_response = ""
+        chatbot_response = ""
         logger.debug(f"Running inference with model: {self.model}, temperature: {self.temperature}")
         logger.debug(f"Sending messages: {self.messages}")
         for chunk in self.client.chat_stream(model=self.model, temperature=self.temperature, messages=self.messages):
             response = chunk.choices[0].delta.content
             if response is not None:
                 print(response, end="", flush=True)
-                assistant_response += response
+                chatbot_response += response
 
         print("", flush=True)
 
-        if assistant_response:
-            self.messages.append(ChatMessage(role="assistant", content=assistant_response))
+        if chatbot_response:
+            self.messages.append(ChatMessage(role="assistant", content=chatbot_response))
         logger.debug(f"Current messages: {self.messages}")
+        return chatbot_response
 
     # Get the command from the user input
     def get_command(self, input):
@@ -198,15 +213,6 @@ To see this help: /help
     def start(self):
         self.opening_instructions()
         self.new_chat()
-        while True:
-            try:
-                input = self.collect_user_input()
-                if self.is_command(input):
-                    self.execute_command(input)
-                else:
-                    self.run_inference(input)
-            except KeyboardInterrupt:
-                self.exit()
 
     # Exit the chatbot
     def exit(self):
