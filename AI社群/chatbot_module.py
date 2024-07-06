@@ -2,9 +2,13 @@ import logging
 import sys
 from mistralai.client import MistralClient
 from mistralai.models.chat_completion import ChatMessage
+"""
+# Windows version
 from pyreadline3 import Readline
-
 readline = Readline()  # For readline can't work on windows bug fixed
+"""
+# Linux version
+import readline
 
 # List of available models
 MODEL_LIST = [
@@ -99,33 +103,48 @@ To see this help: /help
 """
         )
 
+
     # Start a new chat session
     def new_chat(self):
-        print("")
-        print(f"Starting new chat with model: {self.model}, temperature: {self.temperature}")
-        print("")
+        response_message = ""
+        response_message += "\n"
+        response_message += f"Starting new chat with model: {self.model}, temperature: {self.temperature}"
+        response_message += "\n"
+        if self.system_message:
+            response_message += f"System message: {self.system_message}"
+            response_message += "\n"
         self.messages = []
         if self.system_message:
             self.messages.append(ChatMessage(role="system", content=self.system_message))
+        print(response_message)
+        return response_message
 
     # Switch the current model
     def switch_model(self, input):
         model = self.get_arguments(input)
         if model in MODEL_LIST:
             self.model = model
-            logger.info(f"Switching model: {model}")
+            response_message = f"Switching model: {model}"
+            print(response_message)
+            return response_message
         else:
-            logger.error(f"Invalid model name: {model}")
+            error_message = f"Invalid model name: {model}"
+            logger.error(error_message)
+            return error_message
 
     # Switch the system message
     def switch_system_message(self, input):
         system_message = self.get_arguments(input)
         if system_message:
             self.system_message = system_message
-            logger.info(f"Switching system message: {system_message}")
+            response_message = f"Switching system message: {system_message}"
             self.new_chat()
+            print(response_message)
+            return response_message
         else:
-            logger.error(f"Invalid system message: {system_message}")
+            error_message = f"Invalid system message: {system_message}"
+            logger.error(error_message)
+            return error_message
 
     # Switch the temperature
     def switch_temperature(self, input):
@@ -135,18 +154,27 @@ To see this help: /help
             if temperature < 0 or temperature > 1:
                 raise ValueError
             self.temperature = temperature
-            logger.info(f"Switching temperature: {temperature}")
+            response_message = f"Switching temperature: {temperature}"
+            print(response_message)
+            return response_message
         except ValueError:
-            logger.error(f"Invalid temperature: {temperature}")
+            error_message = f"Invalid temperature: {temperature}"
+            logger.error(error_message)
+            return error_message
 
     # Show the current configuration
     def show_config(self):
-        print("")
-        print(f"Current model: {self.model}")
-        print(f"Current temperature: {self.temperature}")
-        print(f"Current system message: {self.system_message}")
-        print("")
-
+        response_message = ""
+        response_message += "\n"
+        response_message += f"Current model: {self.model}"
+        response_message += "\n"
+        response_message += f"Current temperature: {self.temperature}"
+        response_message += "\n"
+        response_message += f"Current system message: {self.system_message}"
+        response_message += "\n"
+        print(response_message)
+        return response_message
+        
     # Collect user input
     def collect_user_input(self):
         print("")
@@ -154,9 +182,7 @@ To see this help: /help
 
     # Run inference using the Mistral API
     def run_inference(self, content):
-        print("")
         print("MISTRAL:")
-        print("")
 
         self.messages.append(ChatMessage(role="user", content=content))
 
@@ -197,17 +223,17 @@ To see this help: /help
         if command in ["/exit", "/quit"]:
             self.exit()
         elif command == "/help":
-            self.opening_instructions()
+            return self.opening_instructions()
         elif command == "/new":
-            self.new_chat()
+            return self.new_chat()
         elif command == "/model":
-            self.switch_model(input)
+            return self.switch_model(input)
         elif command == "/system":
-            self.switch_system_message(input)
+            return self.switch_system_message(input)
         elif command == "/temperature":
-            self.switch_temperature(input)
+            return self.switch_temperature(input)
         elif command == "/config":
-            self.show_config()
+            return self.show_config()
 
     # Start the chatbot
     def start(self):

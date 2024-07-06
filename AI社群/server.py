@@ -25,7 +25,7 @@ def save_conversation(user_id, user_message, bot_response):
         os.makedirs(user_dir)  # Create the directory if it doesn't exist
     filename = os.path.join(user_dir, f"{user_id}.txt")  # Log file named after user_id
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")  # Generate a timestamp for the log file
-    with open(filename, 'a') as file:  # Append to the log file
+    with open(filename, 'a', encoding='utf-8') as file:  # Append to the log file
         # Write the conversation to the log file
         file.write(f"{timestamp} User: {user_message}\n")
         file.write(f"{timestamp} Bot: {bot_response}\n")

@@ -4,14 +4,15 @@ import requests
 import sys
 from chatbot_module import *
 
+
 # API Function
-# Read the API key from a file
+# Read the API key from file
 def read_api_key(file_path):
     try:
         with open(file_path, 'r') as file:
-            return file.read().strip()  # Read and strip any extra whitespace
+            return file.read().strip()
     except FileNotFoundError:
-        raise ValueError(f"API key file not found: {file_path}")  # Raise an error if file not found
+        raise ValueError(f"API key file not found: {file_path}")
 
 # To-Server Function
 # Send conversation data to the server
@@ -21,9 +22,9 @@ def send_conversation_to_server(user_id, user_message, bot_response):
         "user_message": user_message,
         "bot_response": bot_response
     }
-    response = requests.post("http://localhost:5000/conversation", json=data)  # Send a POST request to the server
+    response = requests.post("http://localhost:5000/conversation", json=data)
     if response.status_code != 200:
-        logger.error(f"Failed to save conversation: {response.text}")  # Log an error if the request fails
+        logger.error(f"Failed to save conversation: {response.text}")
 
 # Main Function
 # Parse arguments and start the chatbot
@@ -51,7 +52,7 @@ if __name__ == "__main__":
     )
     parser.add_argument("-d", "--debug", action="store_true", help="Enable debug logging")
 
-    args = parser.parse_args()  # Parse command-line arguments
+    args = parser.parse_args()
 
     # Configure logging based on the debug flag
     if args.debug:
@@ -79,17 +80,16 @@ if __name__ == "__main__":
 
         while True:
             try:
-                input = bot.collect_user_input()
-                if bot.is_command(input):
-                    bot.execute_command(input)
+                user_message = bot.collect_user_input()
+                if bot.is_command(user_message):
+                    bot_response = bot.execute_command(user_message)
                 else:
-                    user_message = input
-                    bot_response = bot.run_inference(input)
+                    bot_response = bot.run_inference(user_message)
             except KeyboardInterrupt:
                 bot.exit()
 
             # Send conversation to server
-            send_conversation_to_server(user_id, user_message, bot_response)
+            send_conversation_to_server(user_id, user_message, bot_response)    
 
     except Exception as e:
         logger.error(e)
