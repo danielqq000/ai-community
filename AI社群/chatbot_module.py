@@ -1,3 +1,9 @@
+"""
+chatbot_module.py
+Made by Daniel Huang
+Last update: 7/7/24
+"""
+
 import logging
 import sys
 from mistralai.client import MistralClient
@@ -110,9 +116,6 @@ To see this help: /help
         response_message += "\n"
         response_message += f"Starting new chat with model: {self.model}, temperature: {self.temperature}"
         response_message += "\n"
-        if self.system_message:
-            response_message += f"System message: {self.system_message}"
-            response_message += "\n"
         self.messages = []
         if self.system_message:
             self.messages.append(ChatMessage(role="system", content=self.system_message))
@@ -235,8 +238,13 @@ To see this help: /help
         elif command == "/config":
             return self.show_config()
 
+    # load previous chat to chatbot
+    def load_conversation(self, conversation):
+        self.system_message = conversation
+
     # Start the chatbot
-    def start(self):
+    def start(self, conversation):
+        self.load_conversation(conversation)
         self.opening_instructions()
         self.new_chat()
 

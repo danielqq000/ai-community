@@ -1,3 +1,9 @@
+"""
+server.py
+Made by Daniel Huang
+last update: 7/7/24
+"""
+
 import os
 import logging
 from datetime import datetime
@@ -42,8 +48,22 @@ def conversation():
     save_conversation(user_id, user_message, bot_response)
     return jsonify({"status": "success"})  # Return a success response
 
+# Route to fetch previous chat log
+@app.route('/chatlog/<user_id>', methods=['GET'])
+def fetch_chatlog(user_id):
+    user_dir = os.path.join(BASE_DIR, str(user_id))  # Create a directory path for the user
+    filename = os.path.join(user_dir, f"{user_id}.txt")  # Log file named after user_id
+    
+    if os.path.exists(filename):
+        with open(filename, 'r', encoding='utf-8') as file:
+            chat_log = file.read()  # Read the entire log file
+        return jsonify({"status": "success", "chat_log": chat_log})
+    else:
+        return jsonify({"status": "success", "chat_log": ""})  # Return an empty response if no log exists
+
 # Main entry point of the application
 if __name__ == "__main__":
     if not os.path.exists(BASE_DIR):
         os.makedirs(BASE_DIR)  # Create the base directory if it doesn't exist
     app.run(debug=True)  # Run the Flask application in debug mode
+

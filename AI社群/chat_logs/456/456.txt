@@ -1,6 +1,0 @@
-2024-07-05 23:15:03 User: Hi can you tell me a joke?
-2024-07-05 23:15:03 Bot: Of course, I'd be happy to. Here's a light-hearted joke for you:
-
-Why don't scientists trust atoms?
-
-Because they make up everything!

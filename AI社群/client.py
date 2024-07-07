@@ -1,3 +1,9 @@
+"""
+client.py
+Made by Daniel Huang
+last update: 7/7/24
+"""
+
 import argparse
 import logging
 import requests
@@ -9,7 +15,7 @@ from chatbot_module import *
 # Read the API key from file
 def read_api_key(file_path):
     try:
-        with open(file_path, 'r') as file:
+        with open(file_path, 'r', encoding='utf-8') as file:
             return file.read().strip()
     except FileNotFoundError:
         raise ValueError(f"API key file not found: {file_path}")
@@ -22,9 +28,23 @@ def send_conversation_to_server(user_id, user_message, bot_response):
         "user_message": user_message,
         "bot_response": bot_response
     }
-    response = requests.post("http://localhost:5000/conversation", json=data)
+    headers = {'Content-Type': 'application/json; charset=utf-8'}  # Specify UTF-8
+    response = requests.post("http://localhost:5000/conversation", json=data, headers=headers)
     if response.status_code != 200:
         logger.error(f"Failed to save conversation: {response.text}")
+
+# Fetch chat log from the server
+def fetch_chat_log_from_server(user_id):
+    response = requests.get(f"http://localhost:5000/chatlog/{user_id}")
+    if response.status_code == 200:
+        data = response.json()
+        if data["chat_log"]:
+            return data["chat_log"]
+        else:
+            return ""
+    else:
+        logger.error(f"Failed to fetch chat log: {response.text}")
+        return ""
 
 # Main Function
 # Parse arguments and start the chatbot
@@ -44,8 +64,7 @@ if __name__ == "__main__":
     )
     parser.add_argument("-s", "--system-message", help="Optional system message to prepend.")
     parser.add_argument(
-        "-t",
-        "--temperature",
+        "-t", "--temperature",
         type=float,
         default=DEFAULT_TEMPERATURE,
         help="Optional temperature for chat inference. Defaults to %(default)s",
@@ -76,7 +95,12 @@ if __name__ == "__main__":
         api_key = read_api_key(args.api_key_file)  # Read the API key from the file
         bot = ChatBot(api_key, args.model, args.system_message, args.temperature)  # Initialize the ChatBot
         user_id = input("Please enter your user ID: ")
-        bot.start()
+        
+        # Fetch and get the previous chat log
+        chat_log = fetch_chat_log_from_server(user_id)
+        
+        # Start the bot with the chat log
+        bot.start(chat_log)
 
         while True:
             try:
@@ -94,3 +118,4 @@ if __name__ == "__main__":
     except Exception as e:
         logger.error(e)
         sys.exit(1)
+
