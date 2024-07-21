@@ -1,0 +1,4 @@
+2024-07-14 08:52:18 User: what's 5+5
+2024-07-14 08:52:18 Bot: The sum of 5 and 5 is 10.
+2024-07-14 08:53:31 User: Explain how public key works
+2024-07-14 08:53:31 Bot: Public key cryptography is a method of encrypting and decrypting data using two keys: a public key and a private key. The public key can be shared openly, while the private key must be kept secret. In this system, data encrypted with the public key can only be decrypted with the corresponding private key, and vice versa. This ensures that only the intended recipient can access the encrypted data. The security of this system relies on the mathematical difficulty of factoring large prime numbers, which makes it computationally infeasible for an attacker to derive the private key from the public key.

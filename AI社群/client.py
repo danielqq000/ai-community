@@ -1,10 +1,15 @@
 """
 client.py
 Made by Daniel Huang
-last update: 7/7/24
+last update: 7/21/24
+"""
+
+"""
+Modify: API key shouldn't be accessable code in client
 """
 
 import argparse
+import atexit
 import logging
 import requests
 import sys
@@ -46,13 +51,21 @@ def fetch_chat_log_from_server(user_id):
         logger.error(f"Failed to fetch chat log: {response.text}")
         return ""
 
+# User exit
+# Notify server
+def notify_user_exit(user_id):
+    response = requests.post(f"http://localhost:5000/user_exit/{user_id}")
+    if response.status_code != 200:
+        logger.error(f"Failed to notify server of user exit: {response.text}")
+
+
 # Main Function
 # Parse arguments and start the chatbot
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="A simple chatbot using the Mistral API")
     parser.add_argument(
         "--api-key-file",
-        default="api_key.txt",
+        default="api_key2.txt",
         help="Path to the file containing the Mistral API key. Defaults to api_key.txt",
     )
     parser.add_argument(
@@ -101,6 +114,9 @@ if __name__ == "__main__":
         
         # Start the bot with the chat log
         bot.start(chat_log)
+
+        # Register the exit funciton
+        atexit.register(notify_user_exit, user_id)
 
         while True:
             try:

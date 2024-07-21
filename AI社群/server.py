@@ -1,13 +1,14 @@
 """
 server.py
 Made by Daniel Huang
-last update: 7/7/24
+last update: 7/21/24
 """
 
 import os
 import logging
 from datetime import datetime
 from flask import Flask, request, jsonify
+from tfidf import create_user_profile
 
 # Initialize the Flask application
 app = Flask(__name__)
@@ -20,6 +21,7 @@ handler.setFormatter(logging.Formatter('%(asctime)s - %(name)s - %(levelname)s -
 logger.addHandler(handler)
 
 # Base directory to save chat logs
+# Using same BASE_DIR in tfdif.py, MANUALLY SYNC BOTH
 BASE_DIR = "chat_logs"
 
 # Conversation Function
@@ -60,6 +62,12 @@ def fetch_chatlog(user_id):
         return jsonify({"status": "success", "chat_log": chat_log})
     else:
         return jsonify({"status": "success", "chat_log": ""})  # Return an empty response if no log exists
+
+# Route to handle user exit and create persona
+@app.route('/user_exit/<user_id>', methods=['POST'])
+def user_exit(user_id):
+    create_user_profile(user_id)
+    return jsonify({"status": "success", "message": f"Profile created for user {user_id}."})
 
 # Main entry point of the application
 if __name__ == "__main__":

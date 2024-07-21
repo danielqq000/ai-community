@@ -1,0 +1,1859 @@
+2024-07-14 08:53:30,468 - ERROR - Attempted to access streaming response content, without having called `read()`.
+2024-07-14 09:05:10,867 - ERROR - Unexpected exception (ReadTimeout): The read operation timed out
+2024-07-18 20:50:31,583 - ERROR - [Errno -3] Temporary failure in name resolution
+2024-07-21 11:29:27,035 - ERROR - Status: 403. Message: {"message":"Inactive subscription or usage limit reached"}
+2024-07-21 11:40:04,208 - ERROR - Status: 403. Message: {"message":"Inactive subscription or usage limit reached"}
+2024-07-21 11:41:15,683 - ERROR - Status: 403. Message: {"message":"Inactive subscription or usage limit reached"}
+2024-07-21 12:13:34,950 - ERROR - Failed to notify server of user exit: <!doctype html>
+<html lang=en>
+  <head>
+    <title>NameError: name &#39;user_id&#39; is not defined
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "Gqohtkmk4fQZf6loEwmC";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>NameError</h1>
+<div class="detail">
+  <p class="errormsg">NameError: name &#39;user_id&#39; is not defined
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-124258635676720">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1498</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>) -&gt; cabc.Iterable[bytes]:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-124258634023760">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1476</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-124258634023872">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1473</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+<li><div class="frame" id="frame-124258634023984">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">882</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-124258634024096">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">880</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-124258634024208">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">865</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
+
+<li><div class="frame" id="frame-124258634024320">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/server.py"</cite>,
+      line <em class="line">69</em>,
+      in <code class="function">user_exit</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;chat_log&#34;: &#34;&#34;})  # Return an empty response if no log exists</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws"></span># Route to handle user exit and create persona</pre>
+<pre class="line before"><span class="ws"></span>@app.route(&#39;/user_exit/&lt;user_id&gt;&#39;, methods=[&#39;POST&#39;])</pre>
+<pre class="line before"><span class="ws"></span>def user_exit(user_id):</pre>
+<pre class="line current"><span class="ws">    </span>create_persona(user_id)</pre>
+<pre class="line after"><span class="ws">    </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;message&#34;: f&#34;Persona created for user {user_id}.&#34;})</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># Main entry point of the application</pre>
+<pre class="line after"><span class="ws"></span>if __name__ == &#34;__main__&#34;:</pre>
+<pre class="line after"><span class="ws">    </span>if not os.path.exists(BASE_DIR):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-124258634025776">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">91</em>,
+      in <code class="function">create_persona</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>if not os.path.exists(user_dir):</pre>
+<pre class="line before"><span class="ws">        </span>print(f&#34;Directory for user {user_id} does not exist.&#34;)</pre>
+<pre class="line before"><span class="ws">        </span>exit(1)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Computing user {user_id} tfidf scores...     &#34;, end=&#39;&#39;)</pre>
+<pre class="line current"><span class="ws">    </span>tfidf_scores = compute_score(user_dir)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line after"><span class="ws">    </span>print(f&#34;Updating user {user_id} tfidf scores...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line after"><span class="ws">    </span>score_update(user_dir, tfidf_scores)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-124258634028128">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">58</em>,
+      in <code class="function">compute_score</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws"></span># Computing Funciton</pre>
+<pre class="line before"><span class="ws"></span># Computes tfidf score from given user directory, using user&#39;s chat log</pre>
+<pre class="line before"><span class="ws"></span>def compute_score(dir_path):</pre>
+<pre class="line before"><span class="ws">    </span># Check if file exist, which should be</pre>
+<pre class="line current"><span class="ws">    </span>chat_log_path = os.path.join(dir_path, f&#34;{user_id}.txt&#34;)</pre>
+<pre class="line after"><span class="ws">    </span>if not os.path.exists(chat_log_path):</pre>
+<pre class="line after"><span class="ws">        </span>print(f&#34;Chat log for user {user_id} does not exist.&#34;)</pre>
+<pre class="line after"><span class="ws">        </span>exit(1)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span># Read and preprocess</pre></div>
+</div>
+</ul>
+  <blockquote>NameError: name &#39;user_id&#39; is not defined
+</blockquote>
+</div>
+
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/server.py&#34;, line 69, in user_exit
+    create_persona(user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 91, in create_persona
+    tfidf_scores = compute_score(user_dir)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 58, in compute_score
+    chat_log_path = os.path.join(dir_path, f&#34;{user_id}.txt&#34;)
+NameError: name &#39;user_id&#39; is not defined
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/danielqq000/projects/ai-community/AI社群/server.py", line 69, in user_exit
+    create_persona(user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 91, in create_persona
+    tfidf_scores = compute_score(user_dir)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 58, in compute_score
+    chat_log_path = os.path.join(dir_path, f"{user_id}.txt")
+NameError: name 'user_id' is not defined
+
+
+-->
+
+2024-07-21 12:16:45,844 - ERROR - Failed to notify server of user exit: <!doctype html>
+<html lang=en>
+  <head>
+    <title>NameError: name &#39;file_path&#39; is not defined
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "C3acWQ0KW1yi5KK1ePIg";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>NameError</h1>
+<div class="detail">
+  <p class="errormsg">NameError: name &#39;file_path&#39; is not defined
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-133783696318400">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1498</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>) -&gt; cabc.Iterable[bytes]:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133783692149472">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1476</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133783692149584">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1473</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133783692149696">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">882</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133783692149808">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">880</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133783692149920">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">865</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133783692150032">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/server.py"</cite>,
+      line <em class="line">69</em>,
+      in <code class="function">user_exit</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;chat_log&#34;: &#34;&#34;})  # Return an empty response if no log exists</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws"></span># Route to handle user exit and create persona</pre>
+<pre class="line before"><span class="ws"></span>@app.route(&#39;/user_exit/&lt;user_id&gt;&#39;, methods=[&#39;POST&#39;])</pre>
+<pre class="line before"><span class="ws"></span>def user_exit(user_id):</pre>
+<pre class="line current"><span class="ws">    </span>create_persona(user_id)</pre>
+<pre class="line after"><span class="ws">    </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;message&#34;: f&#34;Persona created for user {user_id}.&#34;})</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># Main entry point of the application</pre>
+<pre class="line after"><span class="ws"></span>if __name__ == &#34;__main__&#34;:</pre>
+<pre class="line after"><span class="ws">    </span>if not os.path.exists(BASE_DIR):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133783692151488">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">91</em>,
+      in <code class="function">create_persona</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>if not os.path.exists(user_dir):</pre>
+<pre class="line before"><span class="ws">        </span>print(f&#34;Directory for user {user_id} does not exist.&#34;)</pre>
+<pre class="line before"><span class="ws">        </span>exit(1)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Computing user {user_id} tfidf scores...     &#34;, end=&#39;&#39;)</pre>
+<pre class="line current"><span class="ws">    </span>tfidf_scores = compute_score(user_dir, user_id)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line after"><span class="ws">    </span>print(f&#34;Updating user {user_id} tfidf scores...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line after"><span class="ws">    </span>score_update(user_dir, tfidf_scores, user_id)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133783692154176">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">64</em>,
+      in <code class="function">compute_score</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>if not os.path.exists(chat_log_path):</pre>
+<pre class="line before"><span class="ws">        </span>print(f&#34;Chat log for user {user_id} does not exist.&#34;)</pre>
+<pre class="line before"><span class="ws">        </span>exit(1)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span># Read and preprocess</pre>
+<pre class="line current"><span class="ws">    </span>chat_log = preprocess_text(read_chat_log(file_path))</pre>
+<pre class="line after"><span class="ws">    </span>tfidf_scores = compute_tfidf(chat_log)</pre>
+<pre class="line after"><span class="ws">    </span>return tfidf_scores</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># Updating Function</pre>
+<pre class="line after"><span class="ws"></span># Update new scores to old one, merge both together</pre></div>
+</div>
+</ul>
+  <blockquote>NameError: name &#39;file_path&#39; is not defined
+</blockquote>
+</div>
+
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/server.py&#34;, line 69, in user_exit
+    create_persona(user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 91, in create_persona
+    tfidf_scores = compute_score(user_dir, user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 64, in compute_score
+    chat_log = preprocess_text(read_chat_log(file_path))
+NameError: name &#39;file_path&#39; is not defined
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/danielqq000/projects/ai-community/AI社群/server.py", line 69, in user_exit
+    create_persona(user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 91, in create_persona
+    tfidf_scores = compute_score(user_dir, user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 64, in compute_score
+    chat_log = preprocess_text(read_chat_log(file_path))
+NameError: name 'file_path' is not defined
+
+
+-->
+
+2024-07-21 12:17:51,698 - ERROR - Failed to notify server of user exit: <!doctype html>
+<html lang=en>
+  <head>
+    <title>NameError: name &#39;write_ifidf_output&#39; is not defined
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "SbM3hX88Pv3q3wJSWUZh";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>NameError</h1>
+<div class="detail">
+  <p class="errormsg">NameError: name &#39;write_ifidf_output&#39; is not defined
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-138918451066832">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1498</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>) -&gt; cabc.Iterable[bytes]:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138918436553552">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1476</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138918436553664">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1473</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138918436553776">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">882</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138918436553888">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">880</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138918436554000">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">865</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138918436554112">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/server.py"</cite>,
+      line <em class="line">69</em>,
+      in <code class="function">user_exit</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;chat_log&#34;: &#34;&#34;})  # Return an empty response if no log exists</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws"></span># Route to handle user exit and create persona</pre>
+<pre class="line before"><span class="ws"></span>@app.route(&#39;/user_exit/&lt;user_id&gt;&#39;, methods=[&#39;POST&#39;])</pre>
+<pre class="line before"><span class="ws"></span>def user_exit(user_id):</pre>
+<pre class="line current"><span class="ws">    </span>create_persona(user_id)</pre>
+<pre class="line after"><span class="ws">    </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;message&#34;: f&#34;Persona created for user {user_id}.&#34;})</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># Main entry point of the application</pre>
+<pre class="line after"><span class="ws"></span>if __name__ == &#34;__main__&#34;:</pre>
+<pre class="line after"><span class="ws">    </span>if not os.path.exists(BASE_DIR):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138918436555568">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">94</em>,
+      in <code class="function">create_persona</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Computing user {user_id} tfidf scores...     &#34;, end=&#39;&#39;)</pre>
+<pre class="line before"><span class="ws">    </span>tfidf_scores = compute_score(user_dir, user_id)</pre>
+<pre class="line before"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Updating user {user_id} tfidf scores...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line current"><span class="ws">    </span>score_update(user_dir, tfidf_scores, user_id)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138918436558256">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">77</em>,
+      in <code class="function">score_update</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span># If old scores exist, read and merge</pre>
+<pre class="line before"><span class="ws">    </span>if os.path.exists(score_path):</pre>
+<pre class="line before"><span class="ws">        </span>old_scores = read_ifidf_scores(score_path)</pre>
+<pre class="line before"><span class="ws">        </span>new_scores = update_tfidf_scores(old_scores, new_scores)</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line current"><span class="ws">    </span>write_ifidf_output(score_path, new_scores)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># File main funciton</pre>
+<pre class="line after"><span class="ws"></span># Parameter: user ID</pre>
+<pre class="line after"><span class="ws"></span># Funciton:</pre>
+<pre class="line after"><span class="ws"></span># find user&#39;s directory, read chat log and analysis, create tfidf scores</pre></div>
+</div>
+</ul>
+  <blockquote>NameError: name &#39;write_ifidf_output&#39; is not defined
+</blockquote>
+</div>
+
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/server.py&#34;, line 69, in user_exit
+    create_persona(user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 94, in create_persona
+    score_update(user_dir, tfidf_scores, user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 77, in score_update
+    write_ifidf_output(score_path, new_scores)
+NameError: name &#39;write_ifidf_output&#39; is not defined
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/danielqq000/projects/ai-community/AI社群/server.py", line 69, in user_exit
+    create_persona(user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 94, in create_persona
+    score_update(user_dir, tfidf_scores, user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 77, in score_update
+    write_ifidf_output(score_path, new_scores)
+NameError: name 'write_ifidf_output' is not defined
+
+
+-->
+
+2024-07-21 12:57:51,879 - ERROR - Failed to notify server of user exit: <!doctype html>
+<html lang=en>
+  <head>
+    <title>NameError: name &#39;read_ifidf_scores&#39; is not defined. Did you mean: &#39;read_tfidf_scores&#39;?
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "fUEo6vznkMM0A69wGsUv";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>NameError</h1>
+<div class="detail">
+  <p class="errormsg">NameError: name &#39;read_ifidf_scores&#39; is not defined. Did you mean: &#39;read_tfidf_scores&#39;?
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-138498722839488">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1498</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>) -&gt; cabc.Iterable[bytes]:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138498711537248">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1476</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138498711537360">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1473</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138498711537472">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">882</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138498711537584">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">880</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138498711537696">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">865</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138498711537808">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/server.py"</cite>,
+      line <em class="line">69</em>,
+      in <code class="function">user_exit</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;chat_log&#34;: &#34;&#34;})  # Return an empty response if no log exists</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws"></span># Route to handle user exit and create persona</pre>
+<pre class="line before"><span class="ws"></span>@app.route(&#39;/user_exit/&lt;user_id&gt;&#39;, methods=[&#39;POST&#39;])</pre>
+<pre class="line before"><span class="ws"></span>def user_exit(user_id):</pre>
+<pre class="line current"><span class="ws">    </span>create_user_profile(user_id)</pre>
+<pre class="line after"><span class="ws">    </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;message&#34;: f&#34;Profile created for user {user_id}.&#34;})</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># Main entry point of the application</pre>
+<pre class="line after"><span class="ws"></span>if __name__ == &#34;__main__&#34;:</pre>
+<pre class="line after"><span class="ws">    </span>if not os.path.exists(BASE_DIR):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-138498711539264">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">117</em>,
+      in <code class="function">create_user_profile</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Computing user {user_id} tfidf scores...     &#34;, end=&#39;&#39;)</pre>
+<pre class="line before"><span class="ws">    </span>tfidf_scores = compute_score(user_dir, user_id)</pre>
+<pre class="line before"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Updating user {user_id} tfidf scores...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line current"><span class="ws">    </span>user_scores = score_update(user_dir, tfidf_scores, user_id)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line after"><span class="ws">    </span>print(f&#34;Creating user {user_id} profile...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line after"><span class="ws">    </span>profile_analysis(user_dir, user_scores, user_id)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-138498711542624">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">76</em>,
+      in <code class="function">score_update</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span># Update new scores to old one, merge both together</pre>
+<pre class="line before"><span class="ws"></span>def score_update(dir_path, new_scores, user_id):</pre>
+<pre class="line before"><span class="ws">    </span>score_path = os.path.join(dir_path, f&#34;{user_id}_tfidf.txt&#34;)</pre>
+<pre class="line before"><span class="ws">    </span># If old scores exist, read and merge</pre>
+<pre class="line before"><span class="ws">    </span>if os.path.exists(score_path):</pre>
+<pre class="line current"><span class="ws">        </span>old_scores = read_ifidf_scores(score_path)</pre>
+<pre class="line after"><span class="ws">        </span>new_scores = update_tfidf_scores(old_scores, new_scores)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>write_tfidf_output(score_path, new_scores)</pre>
+<pre class="line after"><span class="ws">    </span>return new_scores</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+</ul>
+  <blockquote>NameError: name &#39;read_ifidf_scores&#39; is not defined. Did you mean: &#39;read_tfidf_scores&#39;?
+</blockquote>
+</div>
+
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/server.py&#34;, line 69, in user_exit
+    create_user_profile(user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 117, in create_user_profile
+    user_scores = score_update(user_dir, tfidf_scores, user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 76, in score_update
+    old_scores = read_ifidf_scores(score_path)
+NameError: name &#39;read_ifidf_scores&#39; is not defined. Did you mean: &#39;read_tfidf_scores&#39;?
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/danielqq000/projects/ai-community/AI社群/server.py", line 69, in user_exit
+    create_user_profile(user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 117, in create_user_profile
+    user_scores = score_update(user_dir, tfidf_scores, user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 76, in score_update
+    old_scores = read_ifidf_scores(score_path)
+NameError: name 'read_ifidf_scores' is not defined. Did you mean: 'read_tfidf_scores'?
+
+
+-->
+
+2024-07-21 12:58:19,446 - ERROR - Failed to notify server of user exit: <!doctype html>
+<html lang=en>
+  <head>
+    <title>NameError: name &#39;updated_scores&#39; is not defined. Did you mean: &#39;update_scores&#39;?
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "1okshYCYygTjPPPAWgjv";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>NameError</h1>
+<div class="detail">
+  <p class="errormsg">NameError: name &#39;updated_scores&#39; is not defined. Did you mean: &#39;update_scores&#39;?
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-133490698485456">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1498</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>) -&gt; cabc.Iterable[bytes]:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133490687346272">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1476</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133490687346384">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1473</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133490687346496">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">882</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133490687346608">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">880</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133490687346720">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">865</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133490687346832">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/server.py"</cite>,
+      line <em class="line">69</em>,
+      in <code class="function">user_exit</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;chat_log&#34;: &#34;&#34;})  # Return an empty response if no log exists</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws"></span># Route to handle user exit and create persona</pre>
+<pre class="line before"><span class="ws"></span>@app.route(&#39;/user_exit/&lt;user_id&gt;&#39;, methods=[&#39;POST&#39;])</pre>
+<pre class="line before"><span class="ws"></span>def user_exit(user_id):</pre>
+<pre class="line current"><span class="ws">    </span>create_user_profile(user_id)</pre>
+<pre class="line after"><span class="ws">    </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;message&#34;: f&#34;Profile created for user {user_id}.&#34;})</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># Main entry point of the application</pre>
+<pre class="line after"><span class="ws"></span>if __name__ == &#34;__main__&#34;:</pre>
+<pre class="line after"><span class="ws">    </span>if not os.path.exists(BASE_DIR):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133490687348288">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">117</em>,
+      in <code class="function">create_user_profile</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Computing user {user_id} tfidf scores...     &#34;, end=&#39;&#39;)</pre>
+<pre class="line before"><span class="ws">    </span>tfidf_scores = compute_score(user_dir, user_id)</pre>
+<pre class="line before"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Updating user {user_id} tfidf scores...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line current"><span class="ws">    </span>user_scores = score_update(user_dir, tfidf_scores, user_id)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line after"><span class="ws">    </span>print(f&#34;Creating user {user_id} profile...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line after"><span class="ws">    </span>profile_analysis(user_dir, user_scores, user_id)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-133490687351648">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">77</em>,
+      in <code class="function">score_update</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span>def score_update(dir_path, new_scores, user_id):</pre>
+<pre class="line before"><span class="ws">    </span>score_path = os.path.join(dir_path, f&#34;{user_id}_tfidf.txt&#34;)</pre>
+<pre class="line before"><span class="ws">    </span># If old scores exist, read and merge</pre>
+<pre class="line before"><span class="ws">    </span>if os.path.exists(score_path):</pre>
+<pre class="line before"><span class="ws">        </span>old_scores = read_tfidf_scores(score_path)</pre>
+<pre class="line current"><span class="ws">        </span>new_scores = update_tfidf_scores(old_scores, new_scores)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>write_tfidf_output(score_path, new_scores)</pre>
+<pre class="line after"><span class="ws">    </span>return new_scores</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># Profiling Function</pre></div>
+</div>
+
+<li><div class="frame" id="frame-133490687351760">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">45</em>,
+      in <code class="function">update_tfidf_scores</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>return tfidf_scores</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws"></span>def update_tfidf_scores(existing_scores, new_scores):</pre>
+<pre class="line before"><span class="ws">    </span>update_scores = existing_scores.copy()</pre>
+<pre class="line before"><span class="ws">    </span>for word, score in new_scores.items():</pre>
+<pre class="line current"><span class="ws">        </span>if word in updated_scores:</pre>
+<pre class="line after"><span class="ws">            </span>updated_scores[word] += score  # Update if exist</pre>
+<pre class="line after"><span class="ws">        </span>else:</pre>
+<pre class="line after"><span class="ws">            </span>updated_scores[word] = score  # Make if not exist</pre>
+<pre class="line after"><span class="ws">    </span>return updated_scores</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+</ul>
+  <blockquote>NameError: name &#39;updated_scores&#39; is not defined. Did you mean: &#39;update_scores&#39;?
+</blockquote>
+</div>
+
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/server.py&#34;, line 69, in user_exit
+    create_user_profile(user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 117, in create_user_profile
+    user_scores = score_update(user_dir, tfidf_scores, user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 77, in score_update
+    new_scores = update_tfidf_scores(old_scores, new_scores)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 45, in update_tfidf_scores
+    if word in updated_scores:
+NameError: name &#39;updated_scores&#39; is not defined. Did you mean: &#39;update_scores&#39;?
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/danielqq000/projects/ai-community/AI社群/server.py", line 69, in user_exit
+    create_user_profile(user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 117, in create_user_profile
+    user_scores = score_update(user_dir, tfidf_scores, user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 77, in score_update
+    new_scores = update_tfidf_scores(old_scores, new_scores)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 45, in update_tfidf_scores
+    if word in updated_scores:
+NameError: name 'updated_scores' is not defined. Did you mean: 'update_scores'?
+
+
+-->
+
+2024-07-21 12:58:54,667 - ERROR - Failed to notify server of user exit: <!doctype html>
+<html lang=en>
+  <head>
+    <title>NameError: name &#39;updated_scores&#39; is not defined. Did you mean: &#39;update_scores&#39;?
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "nDJW76UCHAR6g0OdvCK3";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>NameError</h1>
+<div class="detail">
+  <p class="errormsg">NameError: name &#39;updated_scores&#39; is not defined. Did you mean: &#39;update_scores&#39;?
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-136134875951312">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1498</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>) -&gt; cabc.Iterable[bytes]:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-136134864619104">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1476</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-136134864619216">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1473</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+<li><div class="frame" id="frame-136134864619328">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">882</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-136134864619440">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">880</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-136134864619552">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">865</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
+
+<li><div class="frame" id="frame-136134864619664">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/server.py"</cite>,
+      line <em class="line">69</em>,
+      in <code class="function">user_exit</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;chat_log&#34;: &#34;&#34;})  # Return an empty response if no log exists</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws"></span># Route to handle user exit and create persona</pre>
+<pre class="line before"><span class="ws"></span>@app.route(&#39;/user_exit/&lt;user_id&gt;&#39;, methods=[&#39;POST&#39;])</pre>
+<pre class="line before"><span class="ws"></span>def user_exit(user_id):</pre>
+<pre class="line current"><span class="ws">    </span>create_user_profile(user_id)</pre>
+<pre class="line after"><span class="ws">    </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;message&#34;: f&#34;Profile created for user {user_id}.&#34;})</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># Main entry point of the application</pre>
+<pre class="line after"><span class="ws"></span>if __name__ == &#34;__main__&#34;:</pre>
+<pre class="line after"><span class="ws">    </span>if not os.path.exists(BASE_DIR):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-136134864621120">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">117</em>,
+      in <code class="function">create_user_profile</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Computing user {user_id} tfidf scores...     &#34;, end=&#39;&#39;)</pre>
+<pre class="line before"><span class="ws">    </span>tfidf_scores = compute_score(user_dir, user_id)</pre>
+<pre class="line before"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Updating user {user_id} tfidf scores...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line current"><span class="ws">    </span>user_scores = score_update(user_dir, tfidf_scores, user_id)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line after"><span class="ws">    </span>print(f&#34;Creating user {user_id} profile...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line after"><span class="ws">    </span>profile_analysis(user_dir, user_scores, user_id)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-136134864624480">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">77</em>,
+      in <code class="function">score_update</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span>def score_update(dir_path, new_scores, user_id):</pre>
+<pre class="line before"><span class="ws">    </span>score_path = os.path.join(dir_path, f&#34;{user_id}_tfidf.txt&#34;)</pre>
+<pre class="line before"><span class="ws">    </span># If old scores exist, read and merge</pre>
+<pre class="line before"><span class="ws">    </span>if os.path.exists(score_path):</pre>
+<pre class="line before"><span class="ws">        </span>old_scores = read_tfidf_scores(score_path)</pre>
+<pre class="line current"><span class="ws">        </span>new_scores = update_tfidf_scores(old_scores, new_scores)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>write_tfidf_output(score_path, new_scores)</pre>
+<pre class="line after"><span class="ws">    </span>return new_scores</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># Profiling Function</pre></div>
+</div>
+
+<li><div class="frame" id="frame-136134864624592">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">45</em>,
+      in <code class="function">update_tfidf_scores</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>return tfidf_scores</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws"></span>def update_tfidf_scores(existing_scores, new_scores):</pre>
+<pre class="line before"><span class="ws">    </span>update_scores = existing_scores.copy()</pre>
+<pre class="line before"><span class="ws">    </span>for word, score in new_scores.items():</pre>
+<pre class="line current"><span class="ws">        </span>if word in updated_scores:</pre>
+<pre class="line after"><span class="ws">            </span>update_scores[word] += score  # Update if exist</pre>
+<pre class="line after"><span class="ws">        </span>else:</pre>
+<pre class="line after"><span class="ws">            </span>update_scores[word] = score  # Make if not exist</pre>
+<pre class="line after"><span class="ws">    </span>return update_scores</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+</ul>
+  <blockquote>NameError: name &#39;updated_scores&#39; is not defined. Did you mean: &#39;update_scores&#39;?
+</blockquote>
+</div>
+
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/server.py&#34;, line 69, in user_exit
+    create_user_profile(user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 117, in create_user_profile
+    user_scores = score_update(user_dir, tfidf_scores, user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 77, in score_update
+    new_scores = update_tfidf_scores(old_scores, new_scores)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 45, in update_tfidf_scores
+    if word in updated_scores:
+NameError: name &#39;updated_scores&#39; is not defined. Did you mean: &#39;update_scores&#39;?
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/danielqq000/projects/ai-community/AI社群/server.py", line 69, in user_exit
+    create_user_profile(user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 117, in create_user_profile
+    user_scores = score_update(user_dir, tfidf_scores, user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 77, in score_update
+    new_scores = update_tfidf_scores(old_scores, new_scores)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 45, in update_tfidf_scores
+    if word in updated_scores:
+NameError: name 'updated_scores' is not defined. Did you mean: 'update_scores'?
+
+
+-->
+
+2024-07-21 12:59:15,534 - ERROR - Failed to notify server of user exit: <!doctype html>
+<html lang=en>
+  <head>
+    <title>NameError: name &#39;ChatMessage&#39; is not defined
+ // Werkzeug Debugger</title>
+    <link rel="stylesheet" href="?__debugger__=yes&amp;cmd=resource&amp;f=style.css">
+    <link rel="shortcut icon"
+        href="?__debugger__=yes&amp;cmd=resource&amp;f=console.png">
+    <script src="?__debugger__=yes&amp;cmd=resource&amp;f=debugger.js"></script>
+    <script>
+      var CONSOLE_MODE = false,
+          EVALEX = true,
+          EVALEX_TRUSTED = false,
+          SECRET = "uoM8HR6xIuxgsSdcBd69";
+    </script>
+  </head>
+  <body style="background-color: #fff">
+    <div class="debugger">
+<h1>NameError</h1>
+<div class="detail">
+  <p class="errormsg">NameError: name &#39;ChatMessage&#39; is not defined
+</p>
+</div>
+<h2 class="traceback">Traceback <em>(most recent call last)</em></h2>
+<div class="traceback">
+  <h3></h3>
+  <ul><li><div class="frame" id="frame-135549555680512">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1498</em>,
+      in <code class="function">__call__</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>) -&gt; cabc.Iterable[bytes]:</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;The WSGI server calls the Flask application object as the</pre>
+<pre class="line before"><span class="ws">        </span>WSGI application. This calls :meth:`wsgi_app`, which can be</pre>
+<pre class="line before"><span class="ws">        </span>wrapped to apply middleware.</pre>
+<pre class="line before"><span class="ws">        </span>&#34;&#34;&#34;</pre>
+<pre class="line current"><span class="ws">        </span>return self.wsgi_app(environ, start_response)</pre></div>
+</div>
+
+<li><div class="frame" id="frame-135549544007376">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1476</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line before"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line before"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line before"><span class="ws">                </span>error = e</pre>
+<pre class="line current"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre>
+<pre class="line after"><span class="ws">                </span>raise</pre>
+<pre class="line after"><span class="ws">            </span>return response(environ, start_response)</pre>
+<pre class="line after"><span class="ws">        </span>finally:</pre></div>
+</div>
+
+<li><div class="frame" id="frame-135549544007488">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">1473</em>,
+      in <code class="function">wsgi_app</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>ctx = self.request_context(environ)</pre>
+<pre class="line before"><span class="ws">        </span>error: BaseException | None = None</pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>try:</pre>
+<pre class="line before"><span class="ws">                </span>ctx.push()</pre>
+<pre class="line current"><span class="ws">                </span>response = self.full_dispatch_request()</pre>
+<pre class="line after"><span class="ws">            </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">                </span>error = e</pre>
+<pre class="line after"><span class="ws">                </span>response = self.handle_exception(e)</pre>
+<pre class="line after"><span class="ws">            </span>except:  # noqa: B001</pre>
+<pre class="line after"><span class="ws">                </span>error = sys.exc_info()[1]</pre></div>
+</div>
+
+<li><div class="frame" id="frame-135549544007600">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">882</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line before"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line before"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line current"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre>
+<pre class="line after"><span class="ws">        </span>self,</pre>
+<pre class="line after"><span class="ws">        </span>rv: ft.ResponseReturnValue | HTTPException,</pre></div>
+</div>
+
+<li><div class="frame" id="frame-135549544007712">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">880</em>,
+      in <code class="function">full_dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws">        </span>try:</pre>
+<pre class="line before"><span class="ws">            </span>request_started.send(self, _async_wrapper=self.ensure_sync)</pre>
+<pre class="line before"><span class="ws">            </span>rv = self.preprocess_request()</pre>
+<pre class="line before"><span class="ws">            </span>if rv is None:</pre>
+<pre class="line current"><span class="ws">                </span>rv = self.dispatch_request()</pre>
+<pre class="line after"><span class="ws">        </span>except Exception as e:</pre>
+<pre class="line after"><span class="ws">            </span>rv = self.handle_user_exception(e)</pre>
+<pre class="line after"><span class="ws">        </span>return self.finalize_request(rv)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def finalize_request(</pre></div>
+</div>
+
+<li><div class="frame" id="frame-135549544007824">
+  <h4>File <cite class="filename">"/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py"</cite>,
+      line <em class="line">865</em>,
+      in <code class="function">dispatch_request</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">            </span>and req.method == &#34;OPTIONS&#34;</pre>
+<pre class="line before"><span class="ws">        </span>):</pre>
+<pre class="line before"><span class="ws">            </span>return self.make_default_options_response()</pre>
+<pre class="line before"><span class="ws">        </span># otherwise dispatch to the handler for that endpoint</pre>
+<pre class="line before"><span class="ws">        </span>view_args: dict[str, t.Any] = req.view_args  # type: ignore[assignment]</pre>
+<pre class="line current"><span class="ws">        </span>return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>def full_dispatch_request(self) -&gt; Response:</pre>
+<pre class="line after"><span class="ws">        </span>&#34;&#34;&#34;Dispatches the request and on top of that performs request</pre>
+<pre class="line after"><span class="ws">        </span>pre and postprocessing as well as HTTP exception catching and</pre>
+<pre class="line after"><span class="ws">        </span>error handling.</pre></div>
+</div>
+
+<li><div class="frame" id="frame-135549544007936">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/server.py"</cite>,
+      line <em class="line">69</em>,
+      in <code class="function">user_exit</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">        </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;chat_log&#34;: &#34;&#34;})  # Return an empty response if no log exists</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line before"><span class="ws"></span># Route to handle user exit and create persona</pre>
+<pre class="line before"><span class="ws"></span>@app.route(&#39;/user_exit/&lt;user_id&gt;&#39;, methods=[&#39;POST&#39;])</pre>
+<pre class="line before"><span class="ws"></span>def user_exit(user_id):</pre>
+<pre class="line current"><span class="ws">    </span>create_user_profile(user_id)</pre>
+<pre class="line after"><span class="ws">    </span>return jsonify({&#34;status&#34;: &#34;success&#34;, &#34;message&#34;: f&#34;Profile created for user {user_id}.&#34;})</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws"></span># Main entry point of the application</pre>
+<pre class="line after"><span class="ws"></span>if __name__ == &#34;__main__&#34;:</pre>
+<pre class="line after"><span class="ws">    </span>if not os.path.exists(BASE_DIR):</pre></div>
+</div>
+
+<li><div class="frame" id="frame-135549544009392">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">120</em>,
+      in <code class="function">create_user_profile</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Updating user {user_id} tfidf scores...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line before"><span class="ws">    </span>user_scores = score_update(user_dir, tfidf_scores, user_id)</pre>
+<pre class="line before"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line before"><span class="ws">    </span>print(f&#34;Creating user {user_id} profile...      &#34;, end=&#39;&#39;)</pre>
+<pre class="line current"><span class="ws">    </span>profile_analysis(user_dir, user_scores, user_id)</pre>
+<pre class="line after"><span class="ws">    </span>print(&#34;Done.&#34;)</pre>
+<pre class="line after"><span class="ws"></span> </pre></div>
+</div>
+
+<li><div class="frame" id="frame-135549544012752">
+  <h4>File <cite class="filename">"/home/danielqq000/projects/ai-community/AI社群/tfidf.py"</cite>,
+      line <em class="line">93</em>,
+      in <code class="function">profile_analysis</code></h4>
+  <div class="source "><pre class="line before"><span class="ws">    </span>analysis_prompt = &#34;Analyze the following TF-IDF scores and create a user profile based on these keywords:\n&#34;</pre>
+<pre class="line before"><span class="ws">    </span>for word, score in user_scores.items():</pre>
+<pre class="line before"><span class="ws">        </span>analysis_prompt += f&#34;{word}: {score}\n&#34;</pre>
+<pre class="line before"><span class="ws">    </span>analysis_prompt += &#34;\nCreate a detailed user profile:&#34;</pre>
+<pre class="line before"><span class="ws"></span> </pre>
+<pre class="line current"><span class="ws">    </span>messages = [ChatMessage(role=&#34;user&#34;, content=analysis_prompt)]</pre>
+<pre class="line after"><span class="ws">    </span>response = client.chat(model=&#34;mistral-large-latest&#34;, temperature=0.7, messages=messages)</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>profile_content = response.choices[0].message.content</pre>
+<pre class="line after"><span class="ws"></span> </pre>
+<pre class="line after"><span class="ws">    </span>profile_path = os.path.join(BASE_DIR, str(user_id), f&#34;{user_id}_profile.txt&#34;)</pre></div>
+</div>
+</ul>
+  <blockquote>NameError: name &#39;ChatMessage&#39; is not defined
+</blockquote>
+</div>
+
+<div class="plain">
+    <p>
+      This is the Copy/Paste friendly version of the traceback.
+    </p>
+    <textarea cols="50" rows="10" name="code" readonly>Traceback (most recent call last):
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File &#34;/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py&#34;, line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/server.py&#34;, line 69, in user_exit
+    create_user_profile(user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 120, in create_user_profile
+    profile_analysis(user_dir, user_scores, user_id)
+  File &#34;/home/danielqq000/projects/ai-community/AI社群/tfidf.py&#34;, line 93, in profile_analysis
+    messages = [ChatMessage(role=&#34;user&#34;, content=analysis_prompt)]
+NameError: name &#39;ChatMessage&#39; is not defined
+</textarea>
+</div>
+<div class="explanation">
+  The debugger caught an exception in your WSGI application.  You can now
+  look at the traceback which led to the error.  <span class="nojavascript">
+  If you enable JavaScript you can also use additional features such as code
+  execution (if the evalex feature is enabled), automatic pasting of the
+  exceptions and much more.</span>
+</div>
+      <div class="footer">
+        Brought to you by <strong class="arthur">DON'T PANIC</strong>, your
+        friendly Werkzeug powered traceback interpreter.
+      </div>
+    </div>
+
+    <div class="pin-prompt">
+      <div class="inner">
+        <h3>Console Locked</h3>
+        <p>
+          The console is locked and needs to be unlocked by entering the PIN.
+          You can find the PIN printed out on the standard output of your
+          shell that runs the server.
+        <form>
+          <p>PIN:
+            <input type=text name=pin size=14>
+            <input type=submit name=btn value="Confirm Pin">
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<!--
+
+Traceback (most recent call last):
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1498, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1476, in wsgi_app
+    response = self.handle_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/home/danielqq000/.local/lib/python3.10/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/home/danielqq000/projects/ai-community/AI社群/server.py", line 69, in user_exit
+    create_user_profile(user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 120, in create_user_profile
+    profile_analysis(user_dir, user_scores, user_id)
+  File "/home/danielqq000/projects/ai-community/AI社群/tfidf.py", line 93, in profile_analysis
+    messages = [ChatMessage(role="user", content=analysis_prompt)]
+NameError: name 'ChatMessage' is not defined
+
+
+-->
+

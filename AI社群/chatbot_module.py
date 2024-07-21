@@ -1,7 +1,7 @@
 """
 chatbot_module.py
 Made by Daniel Huang
-Last update: 7/7/24
+Last update: 7/21/24
 """
 
 import logging
@@ -25,7 +25,7 @@ MODEL_LIST = [
 ]
 
 # Default values for model and temperature
-DEFAULT_MODEL = "mistral-small-latest"
+DEFAULT_MODEL = MODEL_LIST[0]
 DEFAULT_TEMPERATURE = 0.7  # Random 0-1
 
 # A dictionary of all commands and their arguments, used for tab completion.
@@ -112,10 +112,13 @@ To see this help: /help
 
     # Start a new chat session
     def new_chat(self):
+        # Starting message
         response_message = ""
         response_message += "\n"
         response_message += f"Starting new chat with model: {self.model}, temperature: {self.temperature}"
         response_message += "\n"
+
+        # Pre-enter messages
         self.messages = []
         if self.system_message:
             self.messages.append(ChatMessage(role="system", content=self.system_message))
