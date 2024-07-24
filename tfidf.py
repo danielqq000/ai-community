@@ -86,7 +86,10 @@ def profile_analysis(dir_path, user_scores, user_id):
     api_key = read_api_key("api_key2.txt")
     client = MistralClient(api_key=api_key)
 
-    analysis_prompt = "Analyze the following TF-IDF scores and create a user profile based on these keywords:\n"
+    analysis_prompt = """
+    You will be given a TF-IDF scores from a conversation between a user and a AI chatbot.
+    Analyze the following TF-IDF scores and create a user profile based on these keywords:
+    """
     for word, score in user_scores.items():
         analysis_prompt += f"{word}: {score}\n"
     analysis_prompt += "\nCreate a detailed user profile:"

@@ -1,11 +1,12 @@
 """
 chatbot_module.py
 Made by Daniel Huang
-Last update: 7/21/24
+Last update: 7/24/24
 """
 
 import logging
 import sys
+from langdetect import detect
 from mistralai.client import MistralClient
 from mistralai.models.chat_completion import ChatMessage
 """
@@ -186,6 +187,7 @@ To see this help: /help
         print("")
         return input("YOU: ")
 
+    # Main Running Function
     # Run inference using the Mistral API
     def run_inference(self, content):
         print("MISTRAL:")
@@ -195,6 +197,10 @@ To see this help: /help
         chatbot_response = ""
         logger.debug(f"Running inference with model: {self.model}, temperature: {self.temperature}")
         logger.debug(f"Sending messages: {self.messages}")
+
+        user_language = detect(content)  # Detect the language of the user input
+        content += f"\nPlease reply in {user_language}."  # Add in the end as prompt
+
         for chunk in self.client.chat_stream(model=self.model, temperature=self.temperature, messages=self.messages):
             response = chunk.choices[0].delta.content
             if response is not None:
